@@ -1,6 +1,6 @@
 ## 🔧 Setup Instructions
 
-### ✅ 1. Start Bitcoin Daemon (bitcoind) in regtest mode
+###  1. Start Bitcoin Daemon (bitcoind) in regtest mode
 - Open Command Prompt (or Terminal)
 - Navigate to the Bitcoin Core installation directory (`daemon` or `bin` folder)
 - Run the following command:
@@ -11,7 +11,7 @@ bitcoind -regtest
 
 ---
 
-### ✅ 2. Configure `bitcoin.conf` for regtest
+###  2. Configure `bitcoin.conf` for regtest
 - Go to the **regtest folder** where `bitcoin.conf` is located. (Usually in `~/.bitcoin/regtest/` or `AppData\Roaming\Bitcoin\regtest`)
 - Edit `bitcoin.conf` with the following content:
 ```
@@ -31,7 +31,7 @@ txconfirmtarget=6
 
 ---
 
-### ✅ 3. Update Python Script with RPC Credentials
+###  3. Update Python Script with RPC Credentials
 - Open the Python program (the script that interacts with the Bitcoin node).
 - Make sure you update the **RPC credentials** in your Python script to match the ones set in `bitcoin.conf`:
 ```python
@@ -42,7 +42,7 @@ rpc_port = 18443
 
 ---
 
-### ✅ 4. Run the Python Script
+###  4. Run the Python Script
 - After starting `bitcoind` and setting up the config, run your Python script to execute the transactions:
 ```bash
 python3 your_script.py
@@ -50,7 +50,7 @@ python3 your_script.py
 
 ---
 
-## 📚 Important Notes:
+##  Important Notes:
 - Ensure `txindex=1` is set to allow querying transaction details.
 - `regtest` mode is isolated; you control mining and block generation.
 - Use the `bitcoin-cli` tool to check balances, transactions, and blocks.
