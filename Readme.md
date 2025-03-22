@@ -12,9 +12,10 @@ bitcoind -regtest
 ---
 
 ###  2. Configure `bitcoin.conf` for regtest
-- Go to the **regtest folder** where `bitcoin.conf` is located. (Usually in `~/.bitcoin/regtest/` or `AppData\Roaming\Bitcoin\regtest`)
+- Go to the **bitcoin folder** where `bitcoin.conf` is located. If conf file doesn't exist, then create a file **bitcoin.conf** in `~/.bitcoin` or `AppData\Roaming\Bitcoin`
 - Edit `bitcoin.conf` with the following content:
 ```
+[regtest]
 regtest=1
 server=1
 rpcuser=your_username
@@ -57,7 +58,7 @@ python3 your_script.py
 
 ---
 
-## 💻 Useful Commands
+## 💻 Useful Commands to Check Bitcoind is Working
 Check balance:
 ```bash
 bitcoin-cli -regtest getbalance
