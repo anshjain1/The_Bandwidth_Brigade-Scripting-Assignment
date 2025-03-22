@@ -58,7 +58,7 @@ python3 your_script.py
 
 ---
 
-## 💻 Useful Commands to Check Bitcoind is Working
+## 💻 Useful Commands to Check if Bitcoind is Working
 Check balance:
 ```bash
 bitcoin-cli -regtest getbalance
