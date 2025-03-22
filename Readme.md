@@ -1,5 +1,3 @@
-# Bitcoin Transaction Assignment - P2PKH & P2SH-P2WPKH Comparison
-
 ## 🔧 Setup Instructions
 
 ### ✅ 1. Start Bitcoin Daemon (bitcoind) in regtest mode
@@ -77,12 +75,5 @@ bitcoin-cli -regtest listtransactions
 
 ---
 
-## ✅ Deliverables
-- Python script
-- Report with screenshots
-- Analysis of P2PKH vs P2SH-P2WPKH transactions
 
----
-
-🎯 **Make sure all screenshots of decoded scripts and Bitcoin Debugger execution are attached in the report.**
 
