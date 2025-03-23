@@ -11,6 +11,12 @@ This project is part of **CS 216: Introduction to Blockchain** and aims to imple
 
 ---
 
+## Team Members
+* Ansh Jain (230004005)
+* Mahi Shah (230008030)
+* Rayavarapu Sreechand (230001068)
+* Bhumika Aggarwal (230005011)
+
 ## 🎯 Assignment Objectives  
 1. **Legacy Transactions (P2PKH)**  
    - Generate Bitcoin Legacy addresses **A, B, and C**  
@@ -153,13 +159,6 @@ Use bitcoin-cli to check balances, transactions, and blocks.
 6️⃣ Create a transaction from B' → C'
 7️⃣ Validate SegWit scripts using Bitcoin Debugger
 
-
-
-## Team Members
-* Ansh Jain (230004005)
-* Mahi Shah (230008030)
-* Rayavarapu Sreechand (230001068)
-* Bhumika Aggarwal (230005011)
 
 
 
