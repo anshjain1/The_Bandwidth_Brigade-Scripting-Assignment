@@ -65,7 +65,7 @@ bitcoind -regtest
 ```
 This will start the Bitcoin server in regtest mode, allowing for local testing.
 
-##3. Configure bitcoin.conf for Regtest
+## 3. Configure bitcoin.conf for Regtest
 ```bash
 # Step 1: Locate the Bitcoin data directory
 # Windows: C:\Users\YourUsername\AppData\Roaming\Bitcoin\
@@ -156,10 +156,10 @@ Use bitcoin-cli to check balances, transactions, and blocks.
 
 
 ## Team Members
-Ansh Jain (230004005)
-Mahi Shah (230008030)
-Rayavarapu Sreechand (230001068)
-Bhumika Aggarwal (230005011)
+* Ansh Jain (230004005)
+* Mahi Shah (230008030)
+* Rayavarapu Sreechand (230001068)
+* Bhumika Aggarwal (230005011)
 
 
 
