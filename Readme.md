@@ -17,6 +17,8 @@ This project is part of **CS 216: Introduction to Blockchain** and aims to imple
 * Rayavarapu Sreechand (230001068)
 * Bhumika Aggarwal (230005011)
 
+---
+
 ## 🎯 Assignment Objectives  
 1. **Legacy Transactions (P2PKH)**  
    - Generate Bitcoin Legacy addresses **A, B, and C**  
