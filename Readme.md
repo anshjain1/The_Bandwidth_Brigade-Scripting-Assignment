@@ -16,6 +16,7 @@ This project is part of **CS 216: Introduction to Blockchain** and aims to imple
 * Mahi Shah (230008030)
 * Rayavarapu Sreechand (230001068)
 * Bhumika Aggarwal (230005011)
+* Ahmad Ajmeer Shadoo-Buccus (IR0035)
 
 ---
 
