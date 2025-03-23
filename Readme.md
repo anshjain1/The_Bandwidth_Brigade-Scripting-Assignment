@@ -1,36 +1,45 @@
-## 🔧 Setup Instructions
 
-#### 🚀 Bitcoin Core Regtest Setup Guide  
+# 🚀 Bitcoin Core Regtest Setup Guide  
 
-This guide will walk you through installing, configuring, and running Bitcoin Core in **regtest mode** for local development and testing.  
+This guide will walk you through **installing, configuring, and running** Bitcoin Core in **regtest mode** for local development and testing.  
+
+---
 
 ## 📥 1. Download and Install Bitcoin Core  
 
-### Windows  
+### 🖥 Windows  
 1. Download Bitcoin Core from the [official website](https://bitcoincore.org/en/download/).  
 2. Run the installer (`.exe`) and follow the instructions.  
 3. Open **Command Prompt** and navigate to the Bitcoin installation directory (`daemon` or `bin` folder).  
 
-### Linux (Ubuntu/Debian)  
-```bash
-sudo apt update && sudo apt install bitcoin-core
-bitcoind --version  # Verify installation
+### Linux (Ubuntu/Debian)
+bash
 ```
-###  1. Start Bitcoin Daemon (bitcoind) in regtest mode
-- Open Command Prompt (or Terminal)
-- Navigate to the Bitcoin Core installation directory (`daemon` or `bin` folder)
-- Run the following command:
+# Step 1: Update package list and install Bitcoin Core
+sudo apt update && sudo apt install bitcoin-core
+
+# Step 2: Verify installation
+bitcoind --version
+```
+
+## 2. Start Bitcoin Daemon in Regtest Mode
 ```bash
+# Start the Bitcoin daemon in regtest mode
 bitcoind -regtest
 ```
-- This will start the Bitcoin server in regtest mode.
+This will start the Bitcoin server in regtest mode, allowing for local testing.
 
----
+##3. Configure bitcoin.conf for Regtest
+```bash
+# Step 1: Locate the Bitcoin data directory
+# Windows: C:\Users\YourUsername\AppData\Roaming\Bitcoin\
+# Linux/macOS: ~/.bitcoin/
 
-###  2. Configure `bitcoin.conf` for regtest
-- Go to the **bitcoin folder** where `bitcoin.conf` is located. If conf file doesn't exist, then create a file **bitcoin.conf** in `~/.bitcoin` or `AppData\Roaming\Bitcoin`
-- Edit `bitcoin.conf` with the following content:
+# Step 2: If `bitcoin.conf` doesn’t exist, create it
+touch ~/.bitcoin/bitcoin.conf
 ```
+```ini
+# Step 3: Edit `bitcoin.conf` with the following settings
 [regtest]
 regtest=1
 server=1
@@ -44,53 +53,57 @@ fallbackfee=0.0002
 mintxfee=0.00001
 txconfirmtarget=6
 ```
-⚠️ **Note:** Replace `your_username` and `your_password` with your own values.
+⚠️ Note: Replace your_username and your_password with your own values.
 
----
-
-###  3. Update Python Script with RPC Credentials
-- Open the Python program (the script that interacts with the Bitcoin node).
-- Make sure you update the **RPC credentials** in your Python script to match the ones set in `bitcoin.conf`:
+## 4. Update Python Script with RPC Credentials
 ```python
+# Update the Python script with RPC credentials from bitcoin.conf
 rpc_user = 'your_username'
 rpc_password = 'your_password'
 rpc_port = 18443
+
+# Example: Connect to Bitcoin RPC using requests
+import requests
+
+url = f"http://127.0.0.1:{rpc_port}"
+headers = {"content-type": "application/json"}
+auth = (rpc_user, rpc_password)
+
+response = requests.get(url, auth=auth)
+print(response.json())
 ```
 
----
-
-###  4. Run the Python Script
-- After starting `bitcoind` and setting up the config, run your Python script to execute the transactions:
+##5. Run the python script 
 ```bash
+# After starting `bitcoind` and setting up the config, run your Python script
 python3 your_script.py
 ```
 
----
-
-##  Important Notes:
-- Ensure `txindex=1` is set to allow querying transaction details.
-- `regtest` mode is isolated; you control mining and block generation.
-- Use the `bitcoin-cli` tool to check balances, transactions, and blocks.
-
----
-
-## 💻 Useful Commands to Check if Bitcoind is Working
-Check balance:
-```bash
+##Useful Commands to Verify Bitcoin Node is Running
+```
+bash
+# Check Bitcoin balance
 bitcoin-cli -regtest getbalance
-```
 
-Mine a block:
-```bash
+# Mine a block
 bitcoin-cli -regtest generatetoaddress 1 <your_regtest_address>
-```
 
-List transactions:
-```bash
+# List transactions
 bitcoin-cli -regtest listtransactions
 ```
+###Notes
+Ensure txindex=1 is set to allow querying transaction details.
 
----
+Regtest mode is isolated—you must manually generate blocks to process transactions.
+
+Use bitcoin-cli to check balances, transactions, and blocks.
+
+
+
+
+
+
+
 
 
 
