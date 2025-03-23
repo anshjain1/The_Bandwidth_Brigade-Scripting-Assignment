@@ -1,5 +1,21 @@
 ## 🔧 Setup Instructions
 
+#### 🚀 Bitcoin Core Regtest Setup Guide  
+
+This guide will walk you through installing, configuring, and running Bitcoin Core in **regtest mode** for local development and testing.  
+
+## 📥 1. Download and Install Bitcoin Core  
+
+### Windows  
+1. Download Bitcoin Core from the [official website](https://bitcoincore.org/en/download/).  
+2. Run the installer (`.exe`) and follow the instructions.  
+3. Open **Command Prompt** and navigate to the Bitcoin installation directory (`daemon` or `bin` folder).  
+
+### Linux (Ubuntu/Debian)  
+```bash
+sudo apt update && sudo apt install bitcoin-core
+bitcoind --version  # Verify installation
+```
 ###  1. Start Bitcoin Daemon (bitcoind) in regtest mode
 - Open Command Prompt (or Terminal)
 - Navigate to the Bitcoin Core installation directory (`daemon` or `bin` folder)
