@@ -1,13 +1,49 @@
+# 🔗 Bitcoin Scripting: Legacy & SegWit Transactions  
 
-# 🚀 Bitcoin Core Regtest Setup Guide  
+## 📌 Project Overview  
+This project is part of **CS 216: Introduction to Blockchain** and aims to implement **Bitcoin scripting** for transaction validation using both **Legacy (P2PKH)** and **SegWit (P2SH-P2WPKH)** address formats. The project involves:  
 
-This guide will walk you through **installing, configuring, and running** Bitcoin Core in **regtest mode** for local development and testing.  
+✔️ Setting up a **Bitcoin Core node** in **regtest mode**  
+✔️ Creating and executing **Bitcoin transactions** using **Python/C**  
+✔️ Understanding **locking (challenge) and unlocking (response) scripts**  
+✔️ Analyzing **transaction sizes, script structures, and efficiency**  
+✔️ Validating transactions using the **Bitcoin Debugger (`btcdeb`)**  
 
 ---
 
-## 📥 1. Download and Install Bitcoin Core  
+## 🎯 Assignment Objectives  
+1. **Legacy Transactions (P2PKH)**  
+   - Generate Bitcoin Legacy addresses **A, B, and C**  
+   - Create and sign transactions from **A → B** and **B → C**  
+   - Extract and analyze the **ScriptPubKey** and **ScriptSig**  
+   - Validate transactions using **Bitcoin Debugger**  
 
-### 🖥 Windows  
+2. **SegWit Transactions (P2SH-P2WPKH)**  
+   - Generate **SegWit addresses A', B', and C'**  
+   - Create and sign transactions from **A' → B' → C'**  
+   - Analyze the **witness data** and **segregated signature structure**  
+   - Compare **Legacy vs. SegWit** transactions  
+
+3. **Analysis & Comparison**  
+   - Measure and compare the **transaction sizes**  
+   - Explain the difference between **P2PKH vs. P2SH-P2WPKH scripts**  
+   - Evaluate **SegWit efficiency and transaction malleability fixes**  
+
+---
+
+## ⚙️ Tools & Dependencies  
+- **Bitcoin Core (bitcoind)** – Full Bitcoin node  
+- **Bitcoin CLI (`bitcoin-cli`)** – Command-line interface  
+- **Python (`python-bitcoinlib`, `bitcoinrpc`)** – Bitcoin scripting  
+- **Bitcoin Debugger (`btcdeb`)** – Script validation  
+- **C (`libbitcoin`, `curl` for RPC calls)** – Alternative implementation  
+
+---
+
+## 📥 Setup Instructions  
+##  1. Download and Install Bitcoin Core  
+
+### Windows  
 1. Download Bitcoin Core from the [official website](https://bitcoincore.org/en/download/).  
 2. Run the installer (`.exe`) and follow the instructions.  
 3. Open **Command Prompt** and navigate to the Bitcoin installation directory (`daemon` or `bin` folder).  
@@ -73,13 +109,13 @@ response = requests.get(url, auth=auth)
 print(response.json())
 ```
 
-##5. Run the python script 
+## 5. Run the python script 
 ```bash
 # After starting `bitcoind` and setting up the config, run your Python script
 python3 your_script.py
 ```
 
-##Useful Commands to Verify Bitcoin Node is Running
+## Useful Commands to Verify Bitcoin Node is Running
 ```
 bash
 # Check Bitcoin balance
@@ -91,13 +127,39 @@ bitcoin-cli -regtest generatetoaddress 1 <your_regtest_address>
 # List transactions
 bitcoin-cli -regtest listtransactions
 ```
-###Notes
+### Notes
 Ensure txindex=1 is set to allow querying transaction details.
 
 Regtest mode is isolated—you must manually generate blocks to process transactions.
 
 Use bitcoin-cli to check balances, transactions, and blocks.
 
+## 🔍 Transaction Execution Workflow
+###  Legacy (P2PKH) Transactions
+1️⃣ Create three legacy addresses (A, B, C)
+2️⃣ Fund Address A using sendtoaddress
+3️⃣ Create a raw transaction: A → B
+4️⃣ Decode the transaction to extract ScriptPubKey for B
+5️⃣ Sign and broadcast the transaction
+6️⃣ Create a transaction from B → C, repeat the process
+7️⃣ Analyze scripts using Bitcoin Debugger (btcdeb)
+
+## SegWit (P2SH-P2WPKH) Transactions
+1️⃣ Create SegWit addresses (A', B', C')
+2️⃣ Fund Address A'
+3️⃣ Create a raw transaction: A' → B'
+4️⃣ Extract witness data and analyze the challenge script
+5️⃣ Sign and broadcast the transaction
+6️⃣ Create a transaction from B' → C'
+7️⃣ Validate SegWit scripts using Bitcoin Debugger
+
+
+
+## Team Members
+Ansh Jain (230004005)
+Mahi Shah (230008030)
+Rayavarapu Sreechand (230001068)
+Bhumika Aggarwal (230005011)
 
 
 
